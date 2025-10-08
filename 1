@@ -18,6 +18,8 @@
             background-color: #ffe4e1; 
             font-family: 'Arial', sans-serif;
             text-align: center;
+            /* ✨ CORRECCIÓN CLAVE: Evita el scroll horizontal forzado por elementos fuera del viewport. */
+            overflow-x: hidden; 
         }
 
         .container {
@@ -172,13 +174,14 @@
             #mensaje {
                 font-size: 1.2em;
             }
+            /* ✨ AJUSTE EN MÓVILES: Mantenemos los gatitos más cerca del centro para evitar que salgan demasiado. */
             #mensaje img:first-of-type {
-                left: -60px; 
+                left: -20px; 
                 bottom: -10px;
                 height: 80px;
             }
             #mensaje img:last-of-type {
-                right: -60px; 
+                right: -20px; 
                 bottom: -10px;
                 height: 80px;
             }
@@ -199,7 +202,7 @@
 
         <p id="mensaje">
             <span class="message-text">¡SABÍA QUE DIRÍAS QUE SÍ! 😊 Prometo ser mejor. Te amo. 
- Perdón, mi niña.
+Perdón, mi niña.
 
 No quise lastimar tu corazón de pollito con mi forma fría de ser en los cumpleaños, en serio aprecio lo lindo que haces por mí tus cartas, tus detalles hechos a mano y desde el corazón.
 
@@ -220,7 +223,7 @@ Espero lograr demostrarte que en serio me gustan tus detalles y los aprecio con 
 
         let currentAttempt = 0; 
 
-        // M A T R I Z   D E   M E N S A J E S
+        // M A T R I Z   D E   M E N S A J E S
         const perdonMessages = [
             // Intento 1 (currentAttempt 0)
             { h1: "¿Segura? Piensa en este gatito...", sub: "Por favor, no te quise romper el corazón. 😔", kitty: "https://media.tenor.com/KkLEtqtOSSUAAAAj/gato-llorar.gif" }, 
@@ -234,7 +237,7 @@ Espero lograr demostrarte que en serio me gustan tus detalles y los aprecio con 
             { h1: "¡ÚLTIMO AVISO! 🚨", sub: "Te prometo que, si me perdonas, te haré la persona más feliz. ¿Aceptas mi tregua? ✨", kitty: "https://media.tenor.com/KkLEtqtOSSUAAAAj/gato-llorar.gif" }
         ];
         
-        // F U N C I O N E S   G E N E R A L E S
+        // F U N C I O N E S   G E N E R A L E S
         
         function checkMobileLayout() {
             if (window.matchMedia("(max-width: 600px)").matches) { 
@@ -277,7 +280,7 @@ Espero lograr demostrarte que en serio me gustan tus detalles y los aprecio con 
         }
 
 
-        // L Ó G I C A   D E L   B O T Ó N   N O 
+        // L Ó G I C A   D E L   B O T Ó N   N O 
         // -------------------------------------------------------------
         noBtn.addEventListener('click', (event) => {
             event.preventDefault(); 
@@ -316,7 +319,7 @@ Espero lograr demostrarte que en serio me gustan tus detalles y los aprecio con 
         });
 
 
-        // B O T Ó N   ' S Í '   (Finaliza la dinámica)
+        // B O T Ó N   ' S Í '   (Finaliza la dinámica)
         // -------------------------------------------
         siBtn.addEventListener('click', () => {
             // Oculta la pregunta y el botón
